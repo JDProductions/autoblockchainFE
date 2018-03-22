@@ -1,5 +1,6 @@
 const express = require('express');
 const exphbs  = require('express-handlebars');
+const web3 = require('web3');
 
 const app = express();
 
@@ -9,6 +10,7 @@ app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 app.get('/',(req, res) => {
+    console.log(web3);
     res.render('index');
 });
 
