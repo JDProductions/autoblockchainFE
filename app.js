@@ -22,6 +22,13 @@ app.get('/',(req, res) => {
     console.log(req.body);
 });
 
+app.post('/',(req, res) => {
+    res.render('index', {
+    });
+    console.log(req.body);
+});
+
+
 app.get('/testing',(req, res) => {
     res.render('testing');
 });
