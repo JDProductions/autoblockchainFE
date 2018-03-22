@@ -10,8 +10,10 @@ app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 app.get('/',(req, res) => {
-    console.log(web3);
-    res.render('index');
+    const fakeMilage = 100000;
+    res.render('index', {
+        fakeMilage : fakeMilage
+    });
 });
 
 app.get('/testing',(req, res) => {
