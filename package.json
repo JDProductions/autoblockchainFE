@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "bigchaindb-driver": "^3.2.0",
+    "body-parser": "^1.18.2",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
     "web3": "^1.0.0-beta.33"
