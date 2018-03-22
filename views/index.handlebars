@@ -46,60 +46,17 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td scope="row">1</td>
-                  <td>Oil Changed</td>
-                  <td>Honda</td>
-                  <td>July 12, 2017</td>
-                  <td><a href="details/4" class="btn btn-secondary">
+                {{#each vehicleData}}
+                  <tr>
+                    <td>{{serviceid}}</td>
+                    <td>{{Type}}</td>
+                    <td>{{Car}}</td>
+                    <td>{{date}}</td>
+                    <td><a href="details/4" class="btn btn-secondary">
                     <i class="fa fa-angle-double-right"></i> Details
-                  </a></td>
-                </tr>
-                <tr>
-                  <td scope="row">2</td>
-                  <td>Tires Rotated</td>
-                  <td>Ford</td>
-                  <td>July 13, 2017</td>
-                  <td><a href="details/4" class="btn btn-secondary">
-                    <i class="fa fa-angle-double-right"></i> Details
-                  </a></td>
-                </tr>
-                <tr>
-                  <td scope="row">3</td>
-                  <td>Air Filer Changed</td>
-                  <td>Local Shop</td>
-                  <td>July 14, 2017</td>
-                  <td><a href="details/4" class="btn btn-secondary">
-                    <i class="fa fa-angle-double-right"></i> Details
-                  </a></td>
-                </tr>
-                <tr>
-                  <td scope="row">4</td>
-                  <td>Change Brake Pads</td>
-                  <td>Toyota</td>
-                  <td>July 14, 2017</td>
-                  <td><a href="details/4" class="btn btn-secondary">
-                    <i class="fa fa-angle-double-right"></i> Details
-                  </a></td>
-                </tr>
-                <tr>
-                  <td scope="row">5</td>
-                  <td>Fixed Tail Lights</td>
-                  <td>Some Shop</td>
-                  <td>July 15 2017</td>
-                  <td><a href="details/4" class="btn btn-secondary">
-                    <i class="fa fa-angle-double-right"></i> Details
-                  </a></td>
-                </tr>
-                <tr>
-                  <td scope="row">6</td>
-                  <td>Added After Market Radio</td>
-                  <td>Best Buy</td>
-                  <td>July 16, 2017</td>
-                  <td><a href="details/4" class="btn btn-secondary">
-                    <i class="fa fa-angle-double-right"></i> Details
-                  </a></td>
-                </tr>
+                    </a></td>
+                  </tr>
+                {{/each}}
               </tbody>
             </table>
 
@@ -107,8 +64,6 @@
               <ul class="pagination">
                 <li class="page-item disabled"><a href="#" class="page-link">Previous</a></li>
                 <li class="page-item active"><a href="#" class="page-link">1</a></li>
-                <li class="page-item"><a href="#" class="page-link">2</a></li>
-                <li class="page-item"><a href="#" class="page-link">3</a></li>
                 <li class="page-item"><a href="#" class="page-link">Next</a></li>
               </ul>
             </nav>
