@@ -26,7 +26,7 @@ app.post('/',(req, res) => {
     res.render('index', {
         vehicleData: vehicleData("1235454")
     });
-    console.log(req.body);
+    console.log(req.body.searchText);
 });
 
 
