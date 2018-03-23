@@ -1,7 +1,9 @@
 const express = require('express');
 const exphbs  = require('express-handlebars');
-const web3 = require('web3');
+const Web3 = require('web3');
 const bodyParser = require('body-parser');
+const driver = require('bigchaindb-driver')
+
 
 const app = express();
 
@@ -40,8 +42,24 @@ app.get('/details/:detailId',(req, res) => {
 
 app.listen(port,() => {
     console.log(`Server Started on ${port}`);
-    // postBigChain();    
+    var web3 = new Web3();
+    web3.setProvider(new Web3.providers.HttpProvider("http://localhost:8545"));
+    var address = "0xc67c0fb4fdd8b8846d86370b0ec0b34871592b40"
+    abi = JSON.parse('[ { "constant": true, "inputs": [ { "name": "candidate", "type": "bytes32" } ], "name": "totalVotesFor", "outputs": [ { "name": "", "type": "uint8" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [ { "name": "candidate", "type": "bytes32" } ], "name": "validCandidate", "outputs": [ { "name": "", "type": "bool" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [ { "name": "", "type": "bytes32" } ], "name": "votesReceived", "outputs": [ { "name": "", "type": "uint8" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [ { "name": "", "type": "uint256" } ], "name": "candidateList", "outputs": [ { "name": "", "type": "bytes32" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [ { "name": "candidate", "type": "bytes32" } ], "name": "voteForCandidate", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "inputs": [ { "name": "candidateNames", "type": "bytes32[]" } ], "payable": false, "stateMutability": "nonpayable", "type": "constructor" } ]')
+    var VotingContract = new web3.eth.Contract(abi,address);
+// In your nodejs console, execute contractInstance.address to get the address at which the contract is deployed and change the line below to use your deployed address
+// var contractInstance = VotingContract.at(address);
+candidates = {"Rama": "candidate-1", "Nick": "candidate-2", "Jose": "candidate-3"};
+candidateName = "something"
+
+function voteForCandidate() {
+VotingContract.voteForCandidate(candidateName, {from: web3.eth.accounts[0]}, function() {
+    let div_id = candidates[candidateName];
+    $("#" + div_id).html(contractInstance.totalVotesFor.call(candidateName).toString());
+  });
+}
 });
+
 
 var vehicleData = function(vin) {
     var service1 = {Vin: "12345", serviceid: "1", Car: "Honda Civic",  Type: "Oil Change", date: "02/23/2018"};
